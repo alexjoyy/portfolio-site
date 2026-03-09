@@ -1,0 +1,263 @@
+:root {
+  --bg-1: #fff7ef;
+  --bg-2: #fce3c7;
+  --text: #1f1a16;
+  --muted: #5d5146;
+  --surface: rgba(255, 255, 255, 0.68);
+  --line: rgba(31, 26, 22, 0.12);
+  --accent: #0b8f7b;
+  --accent-2: #ff6a3d;
+  --shadow: 0 10px 40px rgba(31, 26, 22, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 90% 15%, rgba(255, 106, 61, 0.32), transparent 38%),
+    radial-gradient(circle at 10% 80%, rgba(11, 143, 123, 0.26), transparent 45%),
+    linear-gradient(145deg, var(--bg-1), var(--bg-2));
+  min-height: 100vh;
+  line-height: 1.55;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  background-image: radial-gradient(#000 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  margin: 1rem auto;
+  width: min(980px, 94vw);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  z-index: 2;
+}
+
+.logo {
+  font-family: "Fraunces", serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text);
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+nav a:hover {
+  color: var(--text);
+}
+
+main,
+footer {
+  width: min(980px, 92vw);
+  margin: 0 auto;
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.hero {
+  min-height: 68vh;
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.15;
+}
+
+h1 {
+  font-family: "Fraunces", serif;
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  max-width: 14ch;
+}
+
+.hero-copy {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  color: var(--muted);
+  max-width: 55ch;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.72rem 1.05rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--line);
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--text);
+}
+
+.section-head {
+  margin-bottom: 1.2rem;
+}
+
+.section-head h2 {
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.section-head p {
+  color: var(--muted);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.6rem;
+}
+
+.skills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.skills li {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.58);
+  border-radius: 10px;
+  padding: 0.62rem 0.7rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.64);
+  box-shadow: var(--shadow);
+  transition: transform 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  margin-bottom: 0.6rem;
+}
+
+.card p {
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+}
+
+.card a,
+#contact a {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer {
+  padding: 1.5rem 0 2.6rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 860px) {
+  .about-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    border-radius: 14px;
+    padding: 0.8rem;
+  }
+
+  nav {
+    gap: 0.65rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+}
