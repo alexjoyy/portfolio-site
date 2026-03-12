@@ -212,6 +212,14 @@ h1 {
   margin-bottom: 0.8rem;
 }
 
+.project-meta {
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+}
+
 .card a,
 #contact a {
   color: var(--accent-2);

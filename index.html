@@ -19,7 +19,7 @@
   <body>
     <div class="grain"></div>
     <header class="site-header">
-      <a class="logo" href="#home">YN</a>
+      <a class="logo" href="#home">AJ</a>
       <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -71,38 +71,41 @@
       <section id="projects" class="section reveal">
         <div class="section-head">
           <h2>Selected Projects</h2>
-          <p>Replace these with your real projects and links.</p>
+          <p>Backend systems I have built and actively developing.</p>
         </div>
 
         <div class="project-grid">
           <article class="card">
             <h3>Order Processing Platform</h3>
+            <p class="project-meta">Java • Spring Boot • PostgreSQL • Docker • JWT</p>
             <p>
-              Designed Spring Boot microservices for order lifecycle management,
-              with async event processing and retry-safe workflows for high-volume
-              transactions.
+              Built a 3-service backend platform (`order`, `inventory`, `payment`)
+              with JWT-protected APIs, inter-service orchestration, and consistent
+              error contracts for production-style behavior.
             </p>
-            <a href="#" aria-label="Open Order Processing Platform project">Case Study</a>
+            <a href="https://github.com/alexjoyy/order-processing-platform" target="_blank" rel="noreferrer" aria-label="Open Order Processing Platform project on GitHub">GitHub Repo</a>
           </article>
 
           <article class="card">
             <h3>Payments Reconciliation Service</h3>
+            <p class="project-meta">Java • Spring Boot • PostgreSQL • Scheduler • CSV Reports</p>
             <p>
-              Built a Java/Spring Boot reconciliation pipeline that matched
-              gateway events with ledger entries and reduced manual settlement
-              effort across operations teams.
+              Built a reconciliation backend that ingests gateway and ledger
+              records, runs scheduled/manual matching, and publishes unmatched
+              exceptions as JSON and downloadable CSV reports.
             </p>
-            <a href="#" aria-label="Open Payments Reconciliation Service project">Case Study</a>
+            <a href="https://github.com/alexjoyy/payments-reconciliation-service" target="_blank" rel="noreferrer" aria-label="Open Payments Reconciliation Service project on GitHub">GitHub Repo</a>
           </article>
 
           <article class="card">
             <h3>AI Support Assistant API</h3>
+            <p class="project-meta">Java • Spring Boot • Prompting • PII Masking • LLM Fallback</p>
             <p>
-              Built a Spring Boot service that routes support requests, enriches
-              context from internal knowledge, and uses an LLM API to generate
-              first-draft responses for agents.
+              Built a support automation API that retrieves policy context,
+              masks sensitive user data, generates AI draft replies, and returns
+              confidence plus source snippets for agent review.
             </p>
-            <a href="#" aria-label="Open AI Support Assistant API project">Case Study</a>
+            <a href="https://github.com/alexjoyy/ai-support-assistant-api" target="_blank" rel="noreferrer" aria-label="Open AI Support Assistant API project on GitHub">GitHub Repo</a>
           </article>
         </div>
       </section>
@@ -113,9 +116,14 @@
         </div>
         <p>
           Want to work together? Email me at
-          <a href="mailto:you@example.com">you@example.com</a>
-          or connect on
-          <a href="#">LinkedIn</a>.
+          <a href="mailto:alexjoy.dev@outlook.com">alexjoy.dev@outlook.com</a>.
+          Connect on
+          <a href="https://www.linkedin.com/in/alexjoyy/" target="_blank" rel="noreferrer">LinkedIn</a>
+          or
+          <a href="https://github.com/alexjoyy" target="_blank" rel="noreferrer">GitHub</a>.
+          <br />
+          Download:
+          <a href="./Alex-Joy-Resume.md" download>Resume</a>.
         </p>
       </section>
     </main>
