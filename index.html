@@ -3,165 +3,194 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alex Joy | Portfolio</title>
+    <title>Alex Joy | Backend Developer</title>
     <meta
       name="description"
-      content="Portfolio website showcasing projects, skills, and experience."
+      content="Alex Joy is a backend-focused Java and Spring Boot developer building reliable APIs, distributed services, and AI-assisted backend systems."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="spotlight-bg" aria-hidden="true">
-      <div class="spotlight spot-a"></div>
-      <div class="spotlight spot-b"></div>
+    <div class="bg-canvas" aria-hidden="true">
+      <div class="beam beam-a"></div>
+      <div class="beam beam-b"></div>
+      <div class="grid-mask"></div>
     </div>
-    <div class="grain"></div>
-    <header class="site-header">
-      <a class="logo" href="#home">AJ</a>
-      <nav>
+
+    <header class="topbar">
+      <a class="brand" href="#home">
+        <span class="brand-mark">AJ</span>
+        <span class="brand-text">Alex Joy</span>
+      </a>
+      <nav class="topnav">
+        <a href="#work">Work</a>
         <a href="#about">About</a>
-        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
+      <a class="top-cta" href="./Alex-Joy-Resume.md" download>Resume</a>
     </header>
 
-    <main id="home">
-      <section class="hero section reveal">
-        <p class="eyebrow">AVAILABLE FOR FREELANCE</p>
-        <h1 class="text-reveal" aria-label="Backend-focused developer building reliable systems and APIs.">
-          <span class="word">Backend-focused</span>
-          <span class="word">developer</span>
-          <span class="word">building</span>
-          <span class="word">reliable</span>
-          <span class="word">systems</span>
-          <span class="word">and</span>
-          <span class="word">APIs.</span>
-        </h1>
-        <p class="hero-copy">
-          I’m <strong>Alex Joy</strong>, a backend-focused developer who builds
-          scalable APIs and dependable services with Java and Spring Boot.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View Work</a>
-          <a class="btn btn-ghost" href="#contact">Let’s Talk</a>
+    <main id="home" class="shell">
+      <section class="hero reveal">
+        <div class="hero-copy">
+          <p class="kicker">JAVA + SPRING BOOT BACKEND ENGINEER</p>
+          <h1>
+            I design
+            <span class="accent">stable backend systems</span>
+            that survive real production traffic.
+          </h1>
+          <p>
+            I’m Alex Joy. I build APIs, service orchestration flows, reconciliation
+            engines, and AI-assisted backend pipelines with practical engineering rigor.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#work">See Projects</a>
+            <a class="btn btn-outline" href="#contact">Start a Conversation</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <h2>Current Focus</h2>
+          <ul>
+            <li>Spring Boot API architecture</li>
+            <li>Distributed service reliability</li>
+            <li>Data consistency and reconciliation</li>
+            <li>LLM workflows with guardrails</li>
+          </ul>
+          <div class="hero-metrics">
+            <div>
+              <strong>3</strong>
+              <span>Live backend projects</span>
+            </div>
+            <div>
+              <strong>5</strong>
+              <span>Deployed services</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="ticker reveal" aria-label="Tech stack">
+        <div class="ticker-track">
+          <span>Java</span>
+          <span>Spring Boot</span>
+          <span>PostgreSQL</span>
+          <span>Docker</span>
+          <span>System Design</span>
+          <span>JWT</span>
+          <span>API Reliability</span>
+          <span>Java</span>
+          <span>Spring Boot</span>
+          <span>PostgreSQL</span>
+          <span>Docker</span>
+          <span>System Design</span>
+          <span>JWT</span>
+          <span>API Reliability</span>
+        </div>
+      </section>
+
+      <section id="work" class="section reveal">
+        <div class="section-head">
+          <p>Selected Work</p>
+          <h2>Built for production-minded teams</h2>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card large">
+            <div class="work-top">
+              <span class="badge">01</span>
+              <p class="stack">Java · Spring Boot · PostgreSQL · JWT</p>
+            </div>
+            <h3>Order Processing Platform</h3>
+            <p>
+              A 3-service backend platform (`order`, `inventory`, `payment`) with
+              secure APIs and orchestration between business-critical operations.
+            </p>
+            <div class="work-links">
+              <a href="https://order-service-xqme.onrender.com/actuator/health" target="_blank" rel="noreferrer">Live Demo</a>
+              <a href="https://github.com/alexjoyy/order-processing-platform" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="work-top">
+              <span class="badge">02</span>
+              <p class="stack">Java · Spring Boot · Scheduler · CSV Reports</p>
+            </div>
+            <h3>Payments Reconciliation Service</h3>
+            <p>
+              Ingests gateway and ledger records, runs reconciliation jobs, and
+              publishes unmatched exceptions in JSON and CSV.
+            </p>
+            <div class="work-links">
+              <a href="https://payments-reconciliation-service.onrender.com/actuator/health" target="_blank" rel="noreferrer">Live Demo</a>
+              <a href="https://github.com/alexjoyy/payments-reconciliation-service" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="work-top">
+              <span class="badge">03</span>
+              <p class="stack">Java · Spring Boot · LLM · PII Masking</p>
+            </div>
+            <h3>AI Support Assistant API</h3>
+            <p>
+              Generates support draft replies with retrieval context, guardrails,
+              confidence scoring, and fallback handling.
+            </p>
+            <div class="work-links">
+              <a href="https://ai-support-assistant-api.onrender.com/actuator/health" target="_blank" rel="noreferrer">Live Demo</a>
+              <a href="https://github.com/alexjoyy/ai-support-assistant-api" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
         </div>
       </section>
 
       <section id="about" class="section reveal">
         <div class="section-head">
-          <h2>About</h2>
+          <p>About</p>
+          <h2>Engineering style</h2>
         </div>
-        <div class="about-grid">
+        <div class="about-layout">
           <p>
-            I’m a backend-focused developer who enjoys turning complex product
-            requirements into stable, maintainable services. I work primarily
-            with Java and Spring Boot on API design, data modeling, performance
-            tuning, and integration-heavy systems that need to be both fast and
-            dependable. I also have hands-on experience applying AI features at
-            a practical level, including API integrations and lightweight model
-            workflows. I care about clear architecture, strong observability,
-            and shipping backend foundations that teams can confidently build on.
+            I focus on backend systems that are simple to reason about and reliable to run.
+            My process starts with clear data contracts, defensive API behavior, and practical
+            observability. I care about shipping useful software, not just clever architecture.
           </p>
-          <ul class="skills">
+          <ul class="skill-grid">
             <li>Java</li>
             <li>Spring Boot</li>
             <li>REST APIs</li>
             <li>PostgreSQL / MySQL</li>
-            <li>AI Integrations (Basics)</li>
             <li>System Design</li>
             <li>Cloud & CI/CD</li>
+            <li>Distributed Workflows</li>
+            <li>AI Integrations</li>
           </ul>
         </div>
       </section>
 
-      <section id="projects" class="section reveal">
-        <div class="section-head">
-          <h2>Selected Projects</h2>
-          <p>Backend systems I have built and actively developing.</p>
-        </div>
-
-        <div class="project-grid">
-          <article class="card display-card">
-            <div class="card-head">
-              <h3>Order Processing Platform</h3>
-              <span class="card-id">01</span>
-            </div>
-            <p class="project-meta">Java • Spring Boot • PostgreSQL • Docker • JWT</p>
-            <p>
-              Built a 3-service backend platform (`order`, `inventory`, `payment`)
-              with JWT-protected APIs, inter-service orchestration, and consistent
-              error contracts for production-style behavior.
-            </p>
-            <div class="project-links">
-              <a href="https://order-service-xqme.onrender.com/actuator/health" target="_blank" rel="noreferrer" aria-label="Open Order Processing Platform live demo">Live Demo</a>
-              ·
-              <a href="https://github.com/alexjoyy/order-processing-platform" target="_blank" rel="noreferrer" aria-label="Open Order Processing Platform project on GitHub">GitHub Repo</a>
-            </div>
-          </article>
-
-          <article class="card display-card">
-            <div class="card-head">
-              <h3>Payments Reconciliation Service</h3>
-              <span class="card-id">02</span>
-            </div>
-            <p class="project-meta">Java • Spring Boot • PostgreSQL • Scheduler • CSV Reports</p>
-            <p>
-              Built a reconciliation backend that ingests gateway and ledger
-              records, runs scheduled/manual matching, and publishes unmatched
-              exceptions as JSON and downloadable CSV reports.
-            </p>
-            <div class="project-links">
-              <a href="https://payments-reconciliation-service.onrender.com/actuator/health" target="_blank" rel="noreferrer" aria-label="Open Payments Reconciliation Service live demo">Live Demo</a>
-              ·
-              <a href="https://github.com/alexjoyy/payments-reconciliation-service" target="_blank" rel="noreferrer" aria-label="Open Payments Reconciliation Service project on GitHub">GitHub Repo</a>
-            </div>
-          </article>
-
-          <article class="card display-card">
-            <div class="card-head">
-              <h3>AI Support Assistant API</h3>
-              <span class="card-id">03</span>
-            </div>
-            <p class="project-meta">Java • Spring Boot • Prompting • PII Masking • LLM Fallback</p>
-            <p>
-              Built a support automation API that retrieves policy context,
-              masks sensitive user data, generates AI draft replies, and returns
-              confidence plus source snippets for agent review.
-            </p>
-            <div class="project-links">
-              <a href="https://ai-support-assistant-api.onrender.com/actuator/health" target="_blank" rel="noreferrer" aria-label="Open AI Support Assistant API live demo">Live Demo</a>
-              ·
-              <a href="https://github.com/alexjoyy/ai-support-assistant-api" target="_blank" rel="noreferrer" aria-label="Open AI Support Assistant API project on GitHub">GitHub Repo</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="contact" class="section reveal">
-        <div class="section-head">
-          <h2>Contact</h2>
-        </div>
+      <section id="contact" class="contact reveal">
+        <p class="kicker">Let’s Build</p>
+        <h2>Need a backend engineer for your next product phase?</h2>
         <p>
-          Want to work together? Email me at
-          <a href="mailto:alexjoy.dev@outlook.com">alexjoy.dev@outlook.com</a>.
-          Connect on
+          Reach out at
+          <a href="mailto:alexjoy.dev@outlook.com">alexjoy.dev@outlook.com</a>
+          or connect on
           <a href="https://www.linkedin.com/in/alexjoyy/" target="_blank" rel="noreferrer">LinkedIn</a>
-          or
+          and
           <a href="https://github.com/alexjoyy" target="_blank" rel="noreferrer">GitHub</a>.
-          <br />
-          Download:
-          <a href="./Alex-Joy-Resume.md" download>Resume</a>.
         </p>
       </section>
     </main>
 
-    <footer>
+    <footer class="footer">
       <p>© <span id="year"></span> Alex Joy</p>
     </footer>
 
