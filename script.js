@@ -16,3 +16,15 @@ const observer = new IntersectionObserver(
 );
 
 revealNodes.forEach((node) => observer.observe(node));
+
+const displayCards = document.querySelectorAll(".display-card");
+
+displayCards.forEach((card) => {
+  card.addEventListener("mousemove", (event) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty("--mx", `${x}%`);
+    card.style.setProperty("--my", `${y}%`);
+  });
+});

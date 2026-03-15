@@ -17,11 +17,9 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="animated-bg" aria-hidden="true">
-      <div class="bg-orb orb-1"></div>
-      <div class="bg-orb orb-2"></div>
-      <div class="bg-orb orb-3"></div>
-      <div class="bg-orb orb-4"></div>
+    <div class="spotlight-bg" aria-hidden="true">
+      <div class="spotlight spot-a"></div>
+      <div class="spotlight spot-b"></div>
     </div>
     <div class="grain"></div>
     <header class="site-header">
@@ -89,49 +87,58 @@
         </div>
 
         <div class="project-grid">
-          <article class="card">
-            <h3>Order Processing Platform</h3>
+          <article class="card display-card">
+            <div class="card-head">
+              <h3>Order Processing Platform</h3>
+              <span class="card-id">01</span>
+            </div>
             <p class="project-meta">Java • Spring Boot • PostgreSQL • Docker • JWT</p>
             <p>
               Built a 3-service backend platform (`order`, `inventory`, `payment`)
               with JWT-protected APIs, inter-service orchestration, and consistent
               error contracts for production-style behavior.
             </p>
-            <p>
+            <div class="project-links">
               <a href="https://order-service-xqme.onrender.com/actuator/health" target="_blank" rel="noreferrer" aria-label="Open Order Processing Platform live demo">Live Demo</a>
               ·
               <a href="https://github.com/alexjoyy/order-processing-platform" target="_blank" rel="noreferrer" aria-label="Open Order Processing Platform project on GitHub">GitHub Repo</a>
-            </p>
+            </div>
           </article>
 
-          <article class="card">
-            <h3>Payments Reconciliation Service</h3>
+          <article class="card display-card">
+            <div class="card-head">
+              <h3>Payments Reconciliation Service</h3>
+              <span class="card-id">02</span>
+            </div>
             <p class="project-meta">Java • Spring Boot • PostgreSQL • Scheduler • CSV Reports</p>
             <p>
               Built a reconciliation backend that ingests gateway and ledger
               records, runs scheduled/manual matching, and publishes unmatched
               exceptions as JSON and downloadable CSV reports.
             </p>
-            <p>
+            <div class="project-links">
               <a href="https://payments-reconciliation-service.onrender.com/actuator/health" target="_blank" rel="noreferrer" aria-label="Open Payments Reconciliation Service live demo">Live Demo</a>
               ·
               <a href="https://github.com/alexjoyy/payments-reconciliation-service" target="_blank" rel="noreferrer" aria-label="Open Payments Reconciliation Service project on GitHub">GitHub Repo</a>
-            </p>
+            </div>
           </article>
 
-          <article class="card">
-            <h3>AI Support Assistant API</h3>
+          <article class="card display-card">
+            <div class="card-head">
+              <h3>AI Support Assistant API</h3>
+              <span class="card-id">03</span>
+            </div>
             <p class="project-meta">Java • Spring Boot • Prompting • PII Masking • LLM Fallback</p>
             <p>
               Built a support automation API that retrieves policy context,
               masks sensitive user data, generates AI draft replies, and returns
               confidence plus source snippets for agent review.
             </p>
-            <p>
+            <div class="project-links">
               <a href="https://ai-support-assistant-api.onrender.com/actuator/health" target="_blank" rel="noreferrer" aria-label="Open AI Support Assistant API live demo">Live Demo</a>
               ·
               <a href="https://github.com/alexjoyy/ai-support-assistant-api" target="_blank" rel="noreferrer" aria-label="Open AI Support Assistant API project on GitHub">GitHub Repo</a>
-            </p>
+            </div>
           </article>
         </div>
       </section>
