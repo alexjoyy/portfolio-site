@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="cursor cursor-dot" aria-hidden="true"></div>
+    <div class="cursor cursor-ring" aria-hidden="true"></div>
+
     <div class="atmosphere" aria-hidden="true">
       <div class="mist mist-a"></div>
       <div class="mist mist-b"></div>
@@ -37,7 +40,7 @@
     </header>
 
     <main id="home" class="layout">
-      <section class="hero reveal">
+      <section class="hero reveal section-shell">
         <p class="hero-kicker">JAVA + SPRING BOOT BACKEND ENGINEER</p>
         <h1>
           I build backend systems
@@ -50,12 +53,12 @@
           sacrificing reliability.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">Explore Work</a>
-          <a class="btn btn-secondary" href="#contact">Hire Me</a>
+          <a class="btn btn-primary magnetic" href="#projects">Explore Work</a>
+          <a class="btn btn-secondary magnetic" href="#contact">Hire Me</a>
         </div>
       </section>
 
-      <section class="status-bar reveal" aria-label="Technical highlights">
+      <section class="status-bar reveal section-shell" aria-label="Technical highlights">
         <div>
           <strong>5</strong>
           <span>Live APIs deployed</span>
@@ -74,13 +77,13 @@
         </div>
       </section>
 
-      <section id="projects" class="projects reveal">
+      <section id="projects" class="projects reveal section-shell">
         <div class="section-intro">
           <p>Selected Projects</p>
           <h2>Backend architecture with clear business outcomes</h2>
         </div>
 
-        <article class="project project-featured tilt-card">
+        <article class="project project-featured tilt-card reveal" data-delay="100">
           <div class="project-meta-row">
             <span class="project-num">01</span>
             <span>Java · Spring Boot · PostgreSQL · JWT · Docker</span>
@@ -99,11 +102,12 @@
           <div class="project-links">
             <a href="https://order-service-xqme.onrender.com/actuator/health" target="_blank" rel="noreferrer">Live Demo</a>
             <a href="https://github.com/alexjoyy/order-processing-platform" target="_blank" rel="noreferrer">GitHub</a>
+            <button class="detail-btn magnetic" type="button" data-project="order">Case Study</button>
           </div>
         </article>
 
         <div class="project-pair">
-          <article class="project tilt-card">
+          <article class="project tilt-card reveal" data-delay="180">
             <div class="project-meta-row">
               <span class="project-num">02</span>
               <span>Java · Scheduler · Reconciliation Engine</span>
@@ -117,10 +121,11 @@
             <div class="project-links">
               <a href="https://payments-reconciliation-service.onrender.com/actuator/health" target="_blank" rel="noreferrer">Live Demo</a>
               <a href="https://github.com/alexjoyy/payments-reconciliation-service" target="_blank" rel="noreferrer">GitHub</a>
+              <button class="detail-btn magnetic" type="button" data-project="recon">Case Study</button>
             </div>
           </article>
 
-          <article class="project tilt-card">
+          <article class="project tilt-card reveal" data-delay="260">
             <div class="project-meta-row">
               <span class="project-num">03</span>
               <span>Java · Prompting · PII Guardrails · Retrieval</span>
@@ -134,12 +139,13 @@
             <div class="project-links">
               <a href="https://ai-support-assistant-api.onrender.com/actuator/health" target="_blank" rel="noreferrer">Live Demo</a>
               <a href="https://github.com/alexjoyy/ai-support-assistant-api" target="_blank" rel="noreferrer">GitHub</a>
+              <button class="detail-btn magnetic" type="button" data-project="ai">Case Study</button>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="approach" class="approach reveal">
+      <section id="approach" class="approach reveal section-shell">
         <div class="section-intro">
           <p>Engineering Approach</p>
           <h2>How I build systems that teams can trust</h2>
@@ -160,7 +166,7 @@
         </div>
       </section>
 
-      <section id="contact" class="contact reveal">
+      <section id="contact" class="contact reveal section-shell">
         <p class="contact-kicker">Let’s Work Together</p>
         <h2>I’m available for backend-focused freelance and full-time roles.</h2>
         <p>
@@ -179,6 +185,18 @@
     <footer class="footer">
       <p>© <span id="year"></span> Alex Joy</p>
     </footer>
+
+    <dialog class="case-modal" id="case-modal" aria-labelledby="case-modal-title">
+      <form method="dialog" class="modal-shell">
+        <button class="modal-close magnetic" value="close" aria-label="Close case study">Close</button>
+      </form>
+      <div class="modal-content">
+        <p class="modal-kicker" id="case-modal-kicker"></p>
+        <h3 id="case-modal-title"></h3>
+        <p id="case-modal-summary"></p>
+        <ul id="case-modal-points"></ul>
+      </div>
+    </dialog>
 
     <script src="script.js"></script>
   </body>
