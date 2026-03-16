@@ -8,6 +8,23 @@
       name="description"
       content="Alex Joy builds reliable backend systems with Java and Spring Boot: distributed APIs, payment reconciliation, and AI-assisted service workflows."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alex Joy | Backend Systems Portfolio" />
+    <meta
+      property="og:description"
+      content="Java + Spring Boot backend engineer. Live APIs, payment systems, and production-style architecture case studies."
+    />
+    <meta property="og:url" content="https://alexjoyy.github.io/portfolio-site/" />
+    <meta property="og:image" content="https://alexjoyy.github.io/portfolio-site/og-cover.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alex Joy | Backend Systems Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Java + Spring Boot backend engineer. Live APIs, payment systems, and production-style architecture case studies."
+    />
+    <meta name="twitter:image" content="https://alexjoyy.github.io/portfolio-site/og-cover.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,8 +34,10 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
     <div class="cursor cursor-dot" aria-hidden="true"></div>
     <div class="cursor cursor-ring" aria-hidden="true"></div>
+    <div class="noise-layer" aria-hidden="true"></div>
 
     <div class="atmosphere" aria-hidden="true">
       <div class="mist mist-a"></div>
@@ -41,20 +60,45 @@
 
     <main id="home" class="layout">
       <section class="hero reveal section-shell">
-        <p class="hero-kicker">JAVA + SPRING BOOT BACKEND ENGINEER</p>
-        <h1>
-          I build backend systems
-          <span>that are calm in production,</span>
-          <em>even under stress.</em>
-        </h1>
-        <p class="hero-sub">
-          I’m Alex Joy. I focus on resilient APIs, transaction-heavy workflows,
-          and practical AI integrations that help teams move faster without
-          sacrificing reliability.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary magnetic" href="#projects">Explore Work</a>
-          <a class="btn btn-secondary magnetic" href="#contact">Hire Me</a>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hero-kicker">JAVA + SPRING BOOT BACKEND ENGINEER</p>
+            <h1>
+              I design backend systems
+              <span>with clarity in chaos,</span>
+              <em>and control at scale.</em>
+            </h1>
+            <p class="hero-sub">
+              I’m Alex Joy. I architect resilient APIs, transaction-heavy
+              workflows, and practical AI integrations that help teams ship with
+              confidence under real production pressure.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary magnetic" href="#projects">Explore Work</a>
+              <a class="btn btn-secondary magnetic" href="#contact">Hire Me</a>
+            </div>
+          </div>
+          <aside class="hero-orbit tilt-card reveal" data-delay="90" aria-label="Backend architecture visual">
+            <p class="orbit-kicker">SYSTEM SNAPSHOT</p>
+            <div class="orbit-core">
+              <span>ORCHESTRATION</span>
+            </div>
+            <div class="orbit-ring orbit-ring-a"></div>
+            <div class="orbit-ring orbit-ring-b"></div>
+            <div class="orbit-points">
+              <span>JWT Security</span>
+              <span>State Machines</span>
+              <span>Failure Recovery</span>
+              <span>Observability</span>
+            </div>
+          </aside>
+        </div>
+        <div class="hero-badges reveal" data-delay="120">
+          <span>Java 21</span>
+          <span>Spring Boot 3</span>
+          <span>Microservices</span>
+          <span>PostgreSQL</span>
+          <span>Render Deployments</span>
         </div>
       </section>
 
@@ -74,6 +118,25 @@
         <div>
           <strong>Java</strong>
           <span>Core engineering stack</span>
+        </div>
+      </section>
+
+      <section class="signal-strip reveal" data-delay="80" aria-label="Capabilities ribbon">
+        <div class="signal-track">
+          <span>Distributed API Design</span>
+          <span>JWT Authentication</span>
+          <span>Payments Reconciliation</span>
+          <span>Fault-Tolerant Workflows</span>
+          <span>AI-Augmented Support APIs</span>
+          <span>Dockerized Deployments</span>
+          <span>Production Observability</span>
+          <span aria-hidden="true">Distributed API Design</span>
+          <span aria-hidden="true">JWT Authentication</span>
+          <span aria-hidden="true">Payments Reconciliation</span>
+          <span aria-hidden="true">Fault-Tolerant Workflows</span>
+          <span aria-hidden="true">AI-Augmented Support APIs</span>
+          <span aria-hidden="true">Dockerized Deployments</span>
+          <span aria-hidden="true">Production Observability</span>
         </div>
       </section>
 
@@ -194,6 +257,30 @@
           <article>
             <h3>3. Outcome-driven delivery</h3>
             <p>I optimize architecture decisions around measurable product and team impact.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="systems reveal section-shell" aria-label="System thinking process">
+        <div class="section-intro">
+          <p>Systems Canvas</p>
+          <h2>How I shape backend complexity into predictable outcomes</h2>
+        </div>
+        <div class="systems-grid">
+          <article class="systems-card">
+            <span>01</span>
+            <h3>Map Constraints</h3>
+            <p>Define failure points, latency boundaries, and data ownership before implementation.</p>
+          </article>
+          <article class="systems-card">
+            <span>02</span>
+            <h3>Design Reliable Flows</h3>
+            <p>Model state transitions and fallback paths so behavior stays deterministic.</p>
+          </article>
+          <article class="systems-card">
+            <span>03</span>
+            <h3>Ship With Proof</h3>
+            <p>Deploy, expose health signals, and validate outcomes using observable production behavior.</p>
           </article>
         </div>
       </section>
