@@ -572,6 +572,11 @@ body {
   font-size: 11px;
 }
 
+.arch-flow {
+  stroke-dasharray: 8 10;
+  animation: flowLine 1.9s linear infinite;
+}
+
 .approach-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -777,6 +782,11 @@ body {
   100% { transform: translate3d(-8%, -7%, 0) scale(1.07); }
 }
 
+@keyframes flowLine {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -36; }
+}
+
 @media (max-width: 980px) {
   .project-pair,
   .approach-grid,
@@ -839,6 +849,11 @@ body {
 
   .magnetic {
     transform: none !important;
+  }
+
+  .arch-flow {
+    animation: none;
+    stroke-dasharray: none;
   }
 }
 
