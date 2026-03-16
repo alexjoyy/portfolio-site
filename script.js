@@ -119,11 +119,14 @@ for (const node of magneticNodes) {
 const healthCards = document.querySelectorAll(".health-card");
 
 if (healthCards.length > 0) {
-  const withTimeout = async (promise, timeoutMs = 8000) => {
-    const timeoutPromise = new Promise((_, reject) => {
-      window.setTimeout(() => reject(new Error("timeout")), timeoutMs);
-    });
-    return Promise.race([promise, timeoutPromise]);
+  const withTimeout = async (promiseFactory, timeoutMs = 8000) => {
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      return await promiseFactory(controller.signal);
+    } finally {
+      window.clearTimeout(timer);
+    }
   };
 
   const parseStatus = (payload) => {
@@ -140,15 +143,32 @@ if (healthCards.length > 0) {
   };
 
   const checkServiceHealth = async (url) => {
+    // Primary strategy for static hosting: connectivity probe using no-cors.
+    // If the request resolves, the service is reachable even if response body is opaque.
+    try {
+      await withTimeout((signal) =>
+        fetch(url, {
+          method: "GET",
+          mode: "no-cors",
+          cache: "no-store",
+          signal,
+        })
+      );
+      return "up";
+    } catch {
+      // Continue to proxy-based content checks before final DOWN.
+    }
+
     const proxyUrls = [
-      url,
       `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
       `https://r.jina.ai/http://${url.replace(/^https?:\/\//, "")}`,
     ];
 
     for (const target of proxyUrls) {
       try {
-        const response = await withTimeout(fetch(target, { cache: "no-store" }));
+        const response = await withTimeout((signal) =>
+          fetch(target, { cache: "no-store", signal })
+        );
         if (!response.ok) {
           continue;
         }
@@ -157,11 +177,12 @@ if (healthCards.length > 0) {
         if (state) {
           return state;
         }
+        return "up";
       } catch {
         continue;
       }
     }
-    return "unknown";
+    return "down";
   };
 
   const updateHealthPill = (card, state) => {
