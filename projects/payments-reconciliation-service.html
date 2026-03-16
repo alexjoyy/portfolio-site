@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payments Reconciliation Service | Alex Joy</title>
+    <meta
+      name="description"
+      content="Case study: payment reconciliation backend that compares gateway transactions against ledger entries with mismatch reporting."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="cursor cursor-dot" aria-hidden="true"></div>
+    <div class="cursor cursor-ring" aria-hidden="true"></div>
+
+    <div class="atmosphere" aria-hidden="true">
+      <div class="mist mist-a"></div>
+      <div class="mist mist-b"></div>
+      <div class="mesh"></div>
+    </div>
+
+    <header class="frame">
+      <a class="identity" href="../index.html">
+        <span class="identity-dot"></span>
+        <span>ALEX JOY</span>
+      </a>
+      <nav class="frame-nav">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#live-status">Live Status</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <a class="frame-resume" href="../Alex-Joy-Resume.md" download>Resume</a>
+    </header>
+
+    <main class="layout case-page">
+      <section class="case-header reveal section-shell">
+        <p class="hero-kicker">Case Study 02</p>
+        <h1>Payments Reconciliation Service</h1>
+        <p>
+          A reconciliation engine that compares payment gateway records with internal
+          ledger entries, classifies mismatches, and exposes actionable reports for
+          operations teams.
+        </p>
+        <div class="case-meta">
+          <span>Java 21</span>
+          <span>Spring Boot</span>
+          <span>Scheduler</span>
+          <span>PostgreSQL</span>
+          <span>Render Deployment</span>
+        </div>
+        <div class="case-actions">
+          <a class="btn btn-primary magnetic" href="https://github.com/alexjoyy/payments-reconciliation-service" target="_blank" rel="noreferrer">GitHub Repository</a>
+          <a class="btn btn-secondary magnetic" href="https://payments-reconciliation-service.onrender.com/actuator/health" target="_blank" rel="noreferrer">Live Health Endpoint</a>
+        </div>
+      </section>
+
+      <section class="case-grid reveal" data-delay="120">
+        <article class="case-card">
+          <h2>Architecture Decisions</h2>
+          <ul>
+            <li>Separated ingestion, reconciliation runner, and reporting concerns.</li>
+            <li>Tracked each run with run-level metrics for auditability.</li>
+            <li>Modeled unmatched records as first-class output for support workflows.</li>
+          </ul>
+        </article>
+        <article class="case-card">
+          <h2>Key Challenge</h2>
+          <p>
+            Data could arrive at different times from gateway and ledger sources.
+            Reconciliation logic was designed to handle asynchronous arrival without
+            losing mismatch traceability.
+          </p>
+        </article>
+      </section>
+
+      <section class="case-grid reveal" data-delay="180">
+        <article class="case-card">
+          <h2>Request Flow</h2>
+          <ul>
+            <li>`POST /api/reconciliation/gateway-transactions` ingests gateway records.</li>
+            <li>`POST /api/reconciliation/ledger-entries` ingests internal entries.</li>
+            <li>`POST /api/reconciliation/run` executes matching logic.</li>
+            <li>`GET /api/reconciliation/reports/unmatched` returns exception set.</li>
+          </ul>
+        </article>
+        <article class="case-card">
+          <h2>Outcome</h2>
+          <ul>
+            <li>Fast visibility into financial mismatches and missing entries.</li>
+            <li>Repeatable reconciliation runs with clear counts and timestamps.</li>
+            <li>Ready foundation for CSV exports and scheduled operations monitoring.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Alex Joy</p>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Processing Platform | Alex Joy</title>
+    <meta
+      name="description"
+      content="Case study: distributed order processing platform built with Java, Spring Boot, JWT auth, and PostgreSQL."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="cursor cursor-dot" aria-hidden="true"></div>
+    <div class="cursor cursor-ring" aria-hidden="true"></div>
+
+    <div class="atmosphere" aria-hidden="true">
+      <div class="mist mist-a"></div>
+      <div class="mist mist-b"></div>
+      <div class="mesh"></div>
+    </div>
+
+    <header class="frame">
+      <a class="identity" href="../index.html">
+        <span class="identity-dot"></span>
+        <span>ALEX JOY</span>
+      </a>
+      <nav class="frame-nav">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#live-status">Live Status</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <a class="frame-resume" href="../Alex-Joy-Resume.md" download>Resume</a>
+    </header>
+
+    <main class="layout case-page">
+      <section class="case-header reveal section-shell">
+        <p class="hero-kicker">Case Study 01</p>
+        <h1>Order Processing Platform</h1>
+        <p>
+          A backend-first commerce workflow with three cooperating services: order,
+          inventory, and payment. The goal was to design predictable lifecycle
+          transitions and remove ambiguity in downstream failures.
+        </p>
+        <div class="case-meta">
+          <span>Java 21</span>
+          <span>Spring Boot</span>
+          <span>JWT</span>
+          <span>PostgreSQL</span>
+          <span>Docker + Render</span>
+        </div>
+        <div class="case-actions">
+          <a class="btn btn-primary magnetic" href="https://github.com/alexjoyy/order-processing-platform" target="_blank" rel="noreferrer">GitHub Repository</a>
+          <a class="btn btn-secondary magnetic" href="https://order-service-xqme.onrender.com/actuator/health" target="_blank" rel="noreferrer">Live Health Endpoint</a>
+        </div>
+      </section>
+
+      <section class="case-grid reveal" data-delay="120">
+        <article class="case-card">
+          <h2>Architecture Decisions</h2>
+          <ul>
+            <li>Isolated business capabilities into separate deployable services.</li>
+            <li>Defined explicit response envelope for all service APIs.</li>
+            <li>Used synchronous HTTP orchestration for simple operational tracing.</li>
+          </ul>
+        </article>
+        <article class="case-card">
+          <h2>Key Challenge</h2>
+          <p>
+            Partial failures between inventory and payment were causing unclear order
+            states. I introduced explicit transition rules and terminal failure states.
+          </p>
+        </article>
+      </section>
+
+      <section class="case-grid reveal" data-delay="180">
+        <article class="case-card">
+          <h2>Request Flow</h2>
+          <ul>
+            <li>`POST /api/orders` receives product + amount + quantity.</li>
+            <li>Order service reserves stock through inventory service.</li>
+            <li>Order service captures payment with payment service.</li>
+            <li>Order status is finalized as `CONFIRMED` or `FAILED`.</li>
+          </ul>
+        </article>
+        <article class="case-card">
+          <h2>Outcome</h2>
+          <ul>
+            <li>Consistent error semantics across all service responses.</li>
+            <li>Safer debugging with clear service boundaries and health endpoints.</li>
+            <li>Production-style deployment of each microservice on Render.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Alex Joy</p>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Support Assistant API | Alex Joy</title>
+    <meta
+      name="description"
+      content="Case study: AI support assistant backend with retrieval context, PII masking, and fallback response safety."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="cursor cursor-dot" aria-hidden="true"></div>
+    <div class="cursor cursor-ring" aria-hidden="true"></div>
+
+    <div class="atmosphere" aria-hidden="true">
+      <div class="mist mist-a"></div>
+      <div class="mist mist-b"></div>
+      <div class="mesh"></div>
+    </div>
+
+    <header class="frame">
+      <a class="identity" href="../index.html">
+        <span class="identity-dot"></span>
+        <span>ALEX JOY</span>
+      </a>
+      <nav class="frame-nav">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#live-status">Live Status</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <a class="frame-resume" href="../Alex-Joy-Resume.md" download>Resume</a>
+    </header>
+
+    <main class="layout case-page">
+      <section class="case-header reveal section-shell">
+        <p class="hero-kicker">Case Study 03</p>
+        <h1>AI Support Assistant API</h1>
+        <p>
+          A practical AI service for support teams that generates draft responses
+          from curated knowledge sources while enforcing privacy and reliability
+          guardrails.
+        </p>
+        <div class="case-meta">
+          <span>Java 21</span>
+          <span>Spring Boot</span>
+          <span>LLM Integration</span>
+          <span>PII Masking</span>
+          <span>Render Deployment</span>
+        </div>
+        <div class="case-actions">
+          <a class="btn btn-primary magnetic" href="https://github.com/alexjoyy/ai-support-assistant-api" target="_blank" rel="noreferrer">GitHub Repository</a>
+          <a class="btn btn-secondary magnetic" href="https://ai-support-assistant-api.onrender.com/actuator/health" target="_blank" rel="noreferrer">Live Health Endpoint</a>
+        </div>
+      </section>
+
+      <section class="case-grid reveal" data-delay="120">
+        <article class="case-card">
+          <h2>Architecture Decisions</h2>
+          <ul>
+            <li>Layered retrieval + generation for grounded response drafts.</li>
+            <li>PII masking before output to reduce accidental leakage.</li>
+            <li>Confidence score and model status fields for safer operations.</li>
+          </ul>
+        </article>
+        <article class="case-card">
+          <h2>Key Challenge</h2>
+          <p>
+            LLM responses can be inconsistent under real ticket pressure. I added
+            explicit fallback behavior so the API still returns useful, deterministic
+            output when model calls fail.
+          </p>
+        </article>
+      </section>
+
+      <section class="case-grid reveal" data-delay="180">
+        <article class="case-card">
+          <h2>Request Flow</h2>
+          <ul>
+            <li>`POST /api/support/draft-reply` receives ticket and context.</li>
+            <li>Knowledge snippets are selected and attached as sources.</li>
+            <li>Model output is validated, masked, and scored.</li>
+            <li>Response returns draft text with traceable metadata.</li>
+          </ul>
+        </article>
+        <article class="case-card">
+          <h2>Outcome</h2>
+          <ul>
+            <li>Faster first-response drafting for repetitive support queries.</li>
+            <li>Improved trust via source references and confidence values.</li>
+            <li>Safer deployment posture through deterministic fallback behavior.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Alex Joy</p>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -77,6 +77,38 @@
         </div>
       </section>
 
+      <section id="live-status" class="live-status reveal section-shell" aria-label="Live backend status">
+        <div class="section-intro">
+          <p>Live Services Status</p>
+          <h2>Real-time health checks across deployed APIs</h2>
+        </div>
+        <p class="status-note">
+          Auto-refreshes every 60 seconds. Click any service to open its health endpoint.
+        </p>
+        <div class="health-grid">
+          <a class="health-card" data-health-url="https://order-service-xqme.onrender.com/actuator/health" href="https://order-service-xqme.onrender.com/actuator/health" target="_blank" rel="noreferrer">
+            <span class="health-name">Order Service</span>
+            <span class="health-pill" data-state="checking">Checking...</span>
+          </a>
+          <a class="health-card" data-health-url="https://inventory-service-mi3o.onrender.com/actuator/health" href="https://inventory-service-mi3o.onrender.com/actuator/health" target="_blank" rel="noreferrer">
+            <span class="health-name">Inventory Service</span>
+            <span class="health-pill" data-state="checking">Checking...</span>
+          </a>
+          <a class="health-card" data-health-url="https://payment-service-rhz2.onrender.com/actuator/health" href="https://payment-service-rhz2.onrender.com/actuator/health" target="_blank" rel="noreferrer">
+            <span class="health-name">Payment Service</span>
+            <span class="health-pill" data-state="checking">Checking...</span>
+          </a>
+          <a class="health-card" data-health-url="https://payments-reconciliation-service.onrender.com/actuator/health" href="https://payments-reconciliation-service.onrender.com/actuator/health" target="_blank" rel="noreferrer">
+            <span class="health-name">Reconciliation Service</span>
+            <span class="health-pill" data-state="checking">Checking...</span>
+          </a>
+          <a class="health-card" data-health-url="https://ai-support-assistant-api.onrender.com/actuator/health" href="https://ai-support-assistant-api.onrender.com/actuator/health" target="_blank" rel="noreferrer">
+            <span class="health-name">AI Support API</span>
+            <span class="health-pill" data-state="checking">Checking...</span>
+          </a>
+        </div>
+      </section>
+
       <section id="projects" class="projects reveal section-shell">
         <div class="section-intro">
           <p>Selected Projects</p>
@@ -102,7 +134,7 @@
           <div class="project-links">
             <a href="https://order-service-xqme.onrender.com/actuator/health" target="_blank" rel="noreferrer">Live Demo</a>
             <a href="https://github.com/alexjoyy/order-processing-platform" target="_blank" rel="noreferrer">GitHub</a>
-            <button class="detail-btn magnetic" type="button" data-project="order">Case Study</button>
+            <a class="detail-btn magnetic" href="./projects/order-processing-platform.html">Case Study</a>
           </div>
         </article>
 
@@ -121,7 +153,7 @@
             <div class="project-links">
               <a href="https://payments-reconciliation-service.onrender.com/actuator/health" target="_blank" rel="noreferrer">Live Demo</a>
               <a href="https://github.com/alexjoyy/payments-reconciliation-service" target="_blank" rel="noreferrer">GitHub</a>
-              <button class="detail-btn magnetic" type="button" data-project="recon">Case Study</button>
+              <a class="detail-btn magnetic" href="./projects/payments-reconciliation-service.html">Case Study</a>
             </div>
           </article>
 
@@ -139,7 +171,7 @@
             <div class="project-links">
               <a href="https://ai-support-assistant-api.onrender.com/actuator/health" target="_blank" rel="noreferrer">Live Demo</a>
               <a href="https://github.com/alexjoyy/ai-support-assistant-api" target="_blank" rel="noreferrer">GitHub</a>
-              <button class="detail-btn magnetic" type="button" data-project="ai">Case Study</button>
+              <a class="detail-btn magnetic" href="./projects/ai-support-assistant-api.html">Case Study</a>
             </div>
           </article>
         </div>
@@ -185,18 +217,6 @@
     <footer class="footer">
       <p>© <span id="year"></span> Alex Joy</p>
     </footer>
-
-    <dialog class="case-modal" id="case-modal" aria-labelledby="case-modal-title">
-      <form method="dialog" class="modal-shell">
-        <button class="modal-close magnetic" value="close" aria-label="Close case study">Close</button>
-      </form>
-      <div class="modal-content">
-        <p class="modal-kicker" id="case-modal-kicker"></p>
-        <h3 id="case-modal-title"></h3>
-        <p id="case-modal-summary"></p>
-        <ul id="case-modal-points"></ul>
-      </div>
-    </dialog>
 
     <script src="script.js"></script>
   </body>

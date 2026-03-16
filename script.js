@@ -116,84 +116,85 @@ for (const node of magneticNodes) {
   });
 }
 
-const modal = document.querySelector("#case-modal");
-const modalKicker = document.querySelector("#case-modal-kicker");
-const modalTitle = document.querySelector("#case-modal-title");
-const modalSummary = document.querySelector("#case-modal-summary");
-const modalPoints = document.querySelector("#case-modal-points");
-const detailButtons = document.querySelectorAll(".detail-btn");
+const healthCards = document.querySelectorAll(".health-card");
 
-const caseStudyData = {
-  order: {
-    kicker: "System Design Snapshot",
-    title: "Order Processing Platform",
-    summary:
-      "A three-service architecture that simulates production-grade order flow with explicit service boundaries and recoverable failures.",
-    points: [
-      "Built JWT propagation across internal service calls for secure downstream requests.",
-      "Implemented deterministic order state transitions (CREATED -> RESERVED -> PAID / FAILED).",
-      "Added consistent API response envelopes to simplify monitoring and client integration.",
-    ],
-  },
-  recon: {
-    kicker: "System Design Snapshot",
-    title: "Payments Reconciliation Service",
-    summary:
-      "A reconciliation engine designed for finance operations where daily mismatch visibility matters more than optimistic assumptions.",
-    points: [
-      "Compares gateway transactions and internal ledger entries with mismatch classification.",
-      "Supports on-demand and scheduled runs, with run-level summary metadata.",
-      "Generates unmatched reports for quick operational follow-up.",
-    ],
-  },
-  ai: {
-    kicker: "System Design Snapshot",
-    title: "AI Support Assistant API",
-    summary:
-      "A practical AI workflow that drafts replies from retrieval context while enforcing privacy and reliability guardrails.",
-    points: [
-      "Retrieves domain knowledge snippets before generation for grounded outputs.",
-      "Applies PII masking and confidence scoring to control unsafe response patterns.",
-      "Falls back gracefully so support teams retain continuity during LLM instability.",
-    ],
-  },
-};
-
-if (modal && modalKicker && modalTitle && modalSummary && modalPoints) {
-  const fillModal = (data) => {
-    modalKicker.textContent = data.kicker;
-    modalTitle.textContent = data.title;
-    modalSummary.textContent = data.summary;
-    modalPoints.innerHTML = "";
-    data.points.forEach((item) => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      modalPoints.appendChild(li);
+if (healthCards.length > 0) {
+  const withTimeout = async (promise, timeoutMs = 8000) => {
+    const timeoutPromise = new Promise((_, reject) => {
+      window.setTimeout(() => reject(new Error("timeout")), timeoutMs);
     });
+    return Promise.race([promise, timeoutPromise]);
   };
 
-  detailButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const key = button.dataset.project;
-      if (!key || !caseStudyData[key]) {
+  const parseStatus = (payload) => {
+    if (!payload) {
+      return null;
+    }
+    if (payload.includes('"status":"UP"') || payload.includes('"status": "UP"')) {
+      return "up";
+    }
+    if (payload.includes('"status":"DOWN"') || payload.includes('"status": "DOWN"')) {
+      return "down";
+    }
+    return null;
+  };
+
+  const checkServiceHealth = async (url) => {
+    const proxyUrls = [
+      url,
+      `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+      `https://r.jina.ai/http://${url.replace(/^https?:\/\//, "")}`,
+    ];
+
+    for (const target of proxyUrls) {
+      try {
+        const response = await withTimeout(fetch(target, { cache: "no-store" }));
+        if (!response.ok) {
+          continue;
+        }
+        const text = await response.text();
+        const state = parseStatus(text);
+        if (state) {
+          return state;
+        }
+      } catch {
+        continue;
+      }
+    }
+    return "unknown";
+  };
+
+  const updateHealthPill = (card, state) => {
+    const pill = card.querySelector(".health-pill");
+    if (!pill) {
+      return;
+    }
+    const textByState = {
+      up: "UP",
+      down: "DOWN",
+      unknown: "Unknown",
+      checking: "Checking...",
+    };
+    pill.dataset.state = state;
+    pill.textContent = textByState[state] ?? "Unknown";
+  };
+
+  const refreshHealth = async () => {
+    const checks = Array.from(healthCards).map(async (card) => {
+      updateHealthPill(card, "checking");
+      const url = card.dataset.healthUrl;
+      if (!url) {
+        updateHealthPill(card, "unknown");
         return;
       }
-      fillModal(caseStudyData[key]);
-      modal.showModal();
+      const state = await checkServiceHealth(url);
+      updateHealthPill(card, state);
     });
-  });
+    await Promise.all(checks);
+  };
 
-  modal.addEventListener("click", (event) => {
-    const rect = modal.getBoundingClientRect();
-    const inside =
-      event.clientX >= rect.left &&
-      event.clientX <= rect.right &&
-      event.clientY >= rect.top &&
-      event.clientY <= rect.bottom;
-    if (!inside) {
-      modal.close();
-    }
-  });
+  refreshHealth();
+  window.setInterval(refreshHealth, 60000);
 }
 
 const sections = document.querySelectorAll("main section[id]");
