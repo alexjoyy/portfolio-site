@@ -98,6 +98,38 @@
           </ul>
         </article>
       </section>
+
+      <section class="arch-diagram reveal" data-delay="220" aria-label="Order platform architecture diagram">
+        <svg viewBox="0 0 980 280" role="img" aria-label="Client calls order service, which calls inventory and payment services with shared database">
+          <defs>
+            <linearGradient id="ordA" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#6cd5ff" stop-opacity="0.9" />
+              <stop offset="100%" stop-color="#8d88ff" stop-opacity="0.9" />
+            </linearGradient>
+            <marker id="arrowOrd" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#8fa7e6"></path>
+            </marker>
+          </defs>
+          <rect x="24" y="28" width="160" height="70" rx="12" fill="rgba(20,30,58,0.9)" stroke="rgba(157,181,241,0.5)"></rect>
+          <text x="56" y="70" class="arch-label">Client App</text>
+          <rect x="258" y="28" width="190" height="70" rx="12" fill="url(#ordA)" opacity="0.92"></rect>
+          <text x="288" y="70" class="arch-label" fill="#061022">Order Service</text>
+          <rect x="520" y="28" width="190" height="70" rx="12" fill="rgba(23,39,74,0.88)" stroke="rgba(157,181,241,0.48)"></rect>
+          <text x="545" y="70" class="arch-label">Inventory Service</text>
+          <rect x="764" y="28" width="190" height="70" rx="12" fill="rgba(23,39,74,0.88)" stroke="rgba(157,181,241,0.48)"></rect>
+          <text x="801" y="70" class="arch-label">Payment Service</text>
+          <rect x="420" y="170" width="230" height="76" rx="12" fill="rgba(18,29,56,0.92)" stroke="rgba(255,190,123,0.45)"></rect>
+          <text x="500" y="202" class="arch-label">PostgreSQL</text>
+          <text x="472" y="222" class="arch-note">orders, inventory, payments</text>
+
+          <line x1="184" y1="63" x2="258" y2="63" stroke="#8fa7e6" stroke-width="2.2" marker-end="url(#arrowOrd)"></line>
+          <line x1="448" y1="52" x2="520" y2="52" stroke="#8fa7e6" stroke-width="2.2" marker-end="url(#arrowOrd)"></line>
+          <line x1="448" y1="74" x2="764" y2="74" stroke="#8fa7e6" stroke-width="2.2" marker-end="url(#arrowOrd)"></line>
+          <line x1="352" y1="98" x2="470" y2="170" stroke="#9bb4f6" stroke-width="2.1" marker-end="url(#arrowOrd)"></line>
+          <line x1="612" y1="98" x2="562" y2="170" stroke="#9bb4f6" stroke-width="2.1" marker-end="url(#arrowOrd)"></line>
+          <line x1="842" y1="98" x2="612" y2="170" stroke="#9bb4f6" stroke-width="2.1" marker-end="url(#arrowOrd)"></line>
+        </svg>
+      </section>
     </main>
 
     <footer class="footer">

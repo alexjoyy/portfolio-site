@@ -545,6 +545,33 @@ body {
   gap: 0.6rem;
 }
 
+.arch-diagram {
+  margin-top: 1rem;
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 0.75rem;
+  background: rgba(10, 15, 30, 0.72);
+}
+
+.arch-diagram svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.arch-label {
+  fill: #dfe8ff;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.arch-note {
+  fill: #afbddf;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+}
+
 .approach-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
