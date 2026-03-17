@@ -2,10 +2,12 @@ const yearNode = document.querySelector("#year");
 if (yearNode) {
   yearNode.textContent = String(new Date().getFullYear());
 }
+const progressBar = document.querySelector(".scroll-progress span");
 
 const revealNodes = document.querySelectorAll(".reveal");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const hasFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const customCursorEnabled = false;
 const atmosphere = document.querySelector(".atmosphere");
 
 const observer = new IntersectionObserver(
@@ -54,7 +56,7 @@ for (const card of tiltCards) {
   });
 }
 
-if (hasFinePointer && !prefersReducedMotion) {
+if (customCursorEnabled && hasFinePointer && !prefersReducedMotion) {
   const cursorDot = document.querySelector(".cursor-dot");
   const cursorRing = document.querySelector(".cursor-ring");
   const interactiveSelector = "a, button, .magnetic, .tilt-card";
@@ -242,4 +244,17 @@ if (sections.length > 0 && navLinks.length > 0) {
   );
 
   sections.forEach((section) => navObserver.observe(section));
+}
+
+if (progressBar) {
+  const updateScrollProgress = () => {
+    const doc = document.documentElement;
+    const maxScroll = doc.scrollHeight - window.innerHeight;
+    const value = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+    progressBar.style.width = `${Math.min(100, Math.max(0, value))}%`;
+  };
+
+  updateScrollProgress();
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  window.addEventListener("resize", updateScrollProgress);
 }
