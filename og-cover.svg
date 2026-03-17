@@ -40,12 +40,12 @@
     Alex Joy
   </text>
 
-  <text x="140" y="336" fill="#EDF2FF" font-family="Manrope, Arial, sans-serif" font-size="45" font-weight="700">
-    Production-Style API Systems
+  <text x="140" y="336" fill="#EDF2FF" font-family="Manrope, Arial, sans-serif" font-size="44" font-weight="700">
+    Production-Ready Backend APIs
   </text>
 
-  <text x="140" y="392" fill="#BFCBEA" font-family="Manrope, Arial, sans-serif" font-size="30" font-weight="500">
-    Order Processing · Reconciliation · AI Support API
+  <text x="140" y="392" fill="#BFCBEA" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="500">
+    Order Processing · Reconciliation · AI Support
   </text>
 
   <g>
